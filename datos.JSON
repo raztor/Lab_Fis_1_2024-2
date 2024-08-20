@@ -1,0 +1,21 @@
+{
+    "title": "Titulo",
+    "xlabel": "Eje X",
+    "ylabel": "Eje Y",
+    "lines": [
+        {
+            "label": "Serie 1",
+            "x": [1, 2, 3, 4, 5],
+            "y": [2, 3, 5, 7, 11],
+            "marker": "o",
+            "linestyle": "-"
+        },
+        {
+            "label": "Serie 2",
+            "x": [1, 2, 3, 4, 5],
+            "y": [1, 4, 6, 8, 10],
+            "marker": "s",
+            "linestyle": "-"
+        }
+    ]
+}
