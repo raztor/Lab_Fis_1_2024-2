@@ -3,17 +3,23 @@ import json
 import os
 from datetime import datetime
 from scipy.signal import savgol_filter
+import ftfy  # Ensure to install ftfy using `pip install ftfy`
+
+# Function to auto-correct text encoding issues
+def fix_text(text):
+    """Auto-corrects text encoding issues."""
+    return ftfy.fix_text(text)
 
 # Load the data from the JSON file
 with open('config/subplot.JSON', 'r') as file:
     data = json.load(file)
 
-# Create the output directory './graficos' if it does not exist
+# Create the output directory './imagenes' if it does not exist
 output_dir = 'imagenes'
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
-# Count existing files with the same title in the 'graficos' directory
+# Count existing files with the same title in the 'imagenes' directory
 title_sanitized = "Filtered_Graphs"  # New title for overall plot series
 existing_files = [f for f in os.listdir(output_dir) if f.startswith(title_sanitized) and f.endswith('.pdf')]
 graph_number = len(existing_files) + 1
@@ -39,9 +45,9 @@ if num_subplots == 1:
 # Plot each subplot's lines
 for i, subplot in enumerate(data['subplots']):
     ax = axs[i]
-    ax.set_title(subplot.get('title', f'Subplot {i + 1}'))
-    ax.set_xlabel(data['xlabel'])
-    ax.set_ylabel(data['ylabel'])
+    ax.set_title(fix_text(subplot.get('title', f'Subplot {i + 1}')))
+    ax.set_xlabel(fix_text(data['xlabel']))
+    ax.set_ylabel(fix_text(data['ylabel']))
 
     # Get the initial Y value for the first line to normalize the others
     initial_y_values = [line['y'][0] for line in subplot['lines'] if line['y']]
@@ -61,8 +67,8 @@ for i, subplot in enumerate(data['subplots']):
             if window_length >= 3:  # Savitzky-Golay filter requires at least window length of 3
                 y_filtered = savgol_filter(y_normalized, window_length=window_length,
                                            polyorder=2)  # Adjust polyorder as needed
-                ax.plot(line['x'], y_filtered, label=line['label'] + ' (filtered)', marker=line.get('marker', ''),
-                        linestyle=line.get('linestyle', '-'))
+                ax.plot(line['x'], y_filtered, label=fix_text(line['label'] + ' (filtered)'),
+                        marker=line.get('marker', ''), linestyle=line.get('linestyle', '-'))
 
     ax.legend(loc='best')
 
