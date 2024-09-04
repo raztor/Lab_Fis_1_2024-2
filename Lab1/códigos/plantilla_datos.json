@@ -1,0 +1,77 @@
+{
+    "xlabel": "Tiempo (s)",
+    "ylabel": "Velocidad (m/s)",
+    "subplots": [
+        {
+            "title": "Velocidad/Tiempo 2º de pendiente",
+            "xlabel": "Tiempo (s)",
+            "ylabel": "Velocidad (m/s)",
+            "lines": [
+                {
+                    "label": "Velocidad teorica",
+                    "marker": "o",
+                    "linestyle": "-",
+                    "x": [],
+                    "y": []
+                }
+            ]
+        },
+      {
+            "title": "Velocidad/Tiempo 4º de pendiente",
+            "xlabel": "Tiempo (s)",
+            "ylabel": "Velocidad (m/s)",
+            "lines": [
+                {
+                    "label": "Velocidad teorica",
+                    "marker": "o",
+                    "linestyle": "-",
+                    "x": [],
+                    "y": []
+                }
+            ]
+        },
+      {
+            "title": "Velocidad/Tiempo 8º de pendiente",
+            "xlabel": "Tiempo (s)",
+            "ylabel": "Velocidad (m/s)",
+            "lines": [
+                {
+                    "label": "Velocidad teorica",
+                    "marker": "o",
+                    "linestyle": "-",
+                    "x": [],
+                    "y": []
+                }
+            ]
+        },
+      {
+            "title": "Velocidad/Tiempo 10º de pendiente",
+            "xlabel": "Tiempo (s)",
+            "ylabel": "Velocidad (m/s)",
+            "lines": [
+                {
+                    "label": "Velocidad teorica",
+                    "marker": "o",
+                    "linestyle": "-",
+                    "x": [],
+                    "y": []
+                }
+            ]
+        },
+      {
+            "title": "Velocidad/Tiempo 14º de pendiente",
+            "xlabel": "Tiempo (s)",
+            "ylabel": "Velocidad (m/s)",
+            "lines": [
+                {
+                    "label": "Velocidad teorica",
+                    "marker": "o",
+                    "linestyle": "-",
+                    "x": [],
+                    "y": []
+                }
+            ]
+        }
+
+    ]
+}
