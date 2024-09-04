@@ -3,9 +3,9 @@ import pandas as pd
 
 # Parámetros iniciales
 v0 = 0  # Velocidad inicial en m/s (supuesto de que el objeto empieza desde el reposo)
-theta = 4  # Ángulo de pendiente en grados
+theta = 14  # Ángulo de pendiente en grados
 g = 9.81  # Gravedad en m/s^2
-T_total = 3  # Tiempo total en segundos
+T_total = 2  # Tiempo total en segundos
 mediciones_por_segundo = 10  # Número de mediciones por segundo
 
 # Convertir ángulo a radianes
