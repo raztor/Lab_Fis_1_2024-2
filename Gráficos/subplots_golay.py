@@ -43,14 +43,23 @@ for i, subplot in enumerate(data['subplots']):
     ax.set_xlabel(data['xlabel'])
     ax.set_ylabel(data['ylabel'])
 
+    # Get the initial Y value for the first line to normalize the others
+    initial_y_values = [line['y'][0] for line in subplot['lines'] if line['y']]
+    if initial_y_values:
+        reference_y = initial_y_values[0]  # Set reference to the first line's initial y value
+
     # Plot each line in the subplot with Savitzky-Golay filter applied
     for line in subplot['lines']:
         if line['x'] and line['y']:  # Ensure there is data to plot
+            # Normalize the y-values to start from the same point
+            y_normalized = [y - line['y'][0] + reference_y for y in line['y']]
+
             # Determine window_length dynamically
-            y_length = len(line['y'])
+            y_length = len(y_normalized)
             window_length = min(11, y_length) if y_length % 2 != 0 else min(11, y_length - 1)
+
             if window_length >= 3:  # Savitzky-Golay filter requires at least window length of 3
-                y_filtered = savgol_filter(line['y'], window_length=window_length,
+                y_filtered = savgol_filter(y_normalized, window_length=window_length,
                                            polyorder=2)  # Adjust polyorder as needed
                 ax.plot(line['x'], y_filtered, label=line['label'] + ' (filtered)', marker=line.get('marker', ''),
                         linestyle=line.get('linestyle', '-'))
