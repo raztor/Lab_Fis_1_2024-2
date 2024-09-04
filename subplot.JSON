@@ -1,0 +1,44 @@
+{
+    "xlabel": "Eje X",
+    "ylabel": "Eje Y",
+    "subplots": [
+        {
+            "title": "Subplot 1",
+            "lines": [
+                {
+                    "label": "",
+                    "x": [],
+                    "y": [],
+                    "marker": "o",
+                    "linestyle": "-"
+                },
+                {
+                    "label": "Serie 1",
+                    "x": [],
+                    "y": [],
+                    "marker": "o",
+                    "linestyle": "-"
+                }
+            ]
+        },
+        {
+            "title": "Subplot 2",
+            "lines": [
+                {
+                    "label": "Serie 2",
+                    "x": [],
+                    "y": [],
+                    "marker": "x",
+                    "linestyle": "--"
+                },
+                {
+                    "label": "Serie 3",
+                    "x": [],
+                    "y": [],
+                    "marker": "s",
+                    "linestyle": "-."
+                }
+            ]
+        }
+    ]
+}
