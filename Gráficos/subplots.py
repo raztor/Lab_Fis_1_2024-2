@@ -4,11 +4,11 @@ import os
 from datetime import datetime
 
 # Load data from JSON file
-with open('datos.JSON', 'r') as file:
+with open('config/datos.JSON', 'r') as file:
     data = json.load(file)
 
 # Create the output directory './graficos' if it does not exist
-output_dir = './graficos'
+output_dir = 'imagenes'
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 

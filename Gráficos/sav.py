@@ -5,7 +5,7 @@ from datetime import datetime
 from scipy.signal import savgol_filter
 
 # Cargar los datos desde el archivo JSON
-with open('datos.JSON', 'r') as file:
+with open('config/datos.JSON', 'r') as file:
     data = json.load(file)
 
 # Crear la figura
@@ -24,7 +24,7 @@ for line in data['lines']:
 plt.legend(loc='best')
 
 # Crear la carpeta './graficos' si no existe
-output_dir = './graficos'
+output_dir = 'imagenes'
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 

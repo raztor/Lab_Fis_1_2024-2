@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 
 # Cargar los datos desde el archivo JSON
-with open('datos.JSON', 'r') as file:
+with open('config/datos.JSON', 'r') as file:
     data = json.load(file)
 
 # Crear la figura

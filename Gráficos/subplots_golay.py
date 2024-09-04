@@ -5,11 +5,11 @@ from datetime import datetime
 from scipy.signal import savgol_filter
 
 # Load the data from the JSON file
-with open('subplot.JSON', 'r') as file:
+with open('config/subplot.JSON', 'r') as file:
     data = json.load(file)
 
 # Create the output directory './graficos' if it does not exist
-output_dir = './graficos'
+output_dir = 'imagenes'
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
