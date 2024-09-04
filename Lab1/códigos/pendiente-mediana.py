@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # Load the JSON file
-with open('subplot.json', 'r') as file:
+with open('datos.JSON', 'r', encoding="UTF-8") as file:
     data = json.load(file)
 
 # List to store slopes for each angle
