@@ -74,9 +74,9 @@
 			\textbf{Integrantes:}
 			
 			\begin{itemize}
-				\item Felipe Ferré Díaz
-				\item Benjamin Muñoz Escobedo
-                \item Víctor Quezada Escobar
+				\item Ferré Díaz Felipe
+				\item Muñoz Escobedo Benjamin 
+                \item Quezada Escobar Víctor
 			\end{itemize}
 			
 			\vspace{0.2in}
@@ -198,6 +198,20 @@
 	
 	\centering\text{Ec. posicion vs tiempo a lo largo del eje x.}
 	\end{center}
+
+        Deducimos de las a fórmulas itinerario la formula para calcular la velocidad final tomando datos teóricos y practicos descritos a continuación:
+	
+	\[
+	v_f = \sqrt{v_i^2 + 2 \cdot a \cdot x}
+	\]
+	
+	Donde:
+	\begin{itemize}
+		\item \(v_f\) es la velocidad final en el punto B (en metros por segundo, m/s).
+		\item \(v_i\) es la velocidad inicial en el punto A (valor práctico obtenido del las grabaciones, en metros por segundo, m/s).
+		\item \(a\) es la aceleración a lo largo del plano inclinado (valor calculado en base a las lecturas del acelerómetro y el cálculo de las componentes de x e y de la gravedad en metros por segundo al cuadrado, m/s²).
+		\item \(x\) es el desplazamiento a lo largo del plano inclinado desde el punto A hasta el punto B (en metros, m).
+	\end{itemize}
 	
 	\section{Metodología}
 	El experimento consistió en posicionar un carro y dezlizarlo sobre un plano inclinado. Utilizamos la cámara de nuestros celulares para grabar la caída y procesar el video en el software propuesto por el profesor y obtener los graficos de posición y velocidad para diferentes angulos del riel en referencia sobre el plano horizontal. Los materiales utilizados para el experimento fueron los siguientes:
@@ -233,11 +247,11 @@
 	\hline
 	\textbf{Ángulo de inclinación} & \multicolumn{2}{c|}{\textbf{Aceleración del cuerpo [m/s\(^2\)]}} \\ \cline{2-3}
 	\textbf{} & \textbf{Sin masa adicional} & \textbf{Con masa adicional} \\ \hline
-	2\textdegree & acel & acel \\ \hline
-	4\textdegree & acel & acel \\ \hline
-	8\textdegree & acel & acel \\ \hline
-	10\textdegree & acel & acel \\ \hline
-	14\textdegree & acel & acel \\ \hline
+	2\textdegree & 0.371 & 0.373 \\ \hline
+	4\textdegree & 0.695 & 0.697 \\ \hline
+	8\textdegree & 1.24 & 1.26 \\ \hline
+	10\textdegree & 1.68 & 1.69 \\ \hline
+	14\textdegree & 2.37 & 2.37 \\ \hline
 	\end{tabular}
 	\caption{Tabla de aceleraciones experimentales en función del ángulo de inclinación.}
 	\label{tabla:aceleraciones}
@@ -264,21 +278,50 @@
 		\begin{tabular}{|c|c|c|c|c|c|c|}
 			\hline
 			\rowcolor{white} % Color de fondo para la primera fila
-			Grados & Acel. Teo. & V_{A} Pract.  & V_{B} Pract. & V_{B} Teo. & V_{f} Teo-Pract. & V_{f} teo \\ \hline
-			Fila 1 & Valor & Valor & Valor & Valor & Valor & Valor \\ \hline
-			Fila 2 & Valor & Valor & Valor & Valor & Valor & Valor \\ \hline
-			Fila 3 & Valor & Valor & Valor & Valor & Valor & Valor \\ \hline
-			Fila 4 & Valor & Valor & Valor & Valor & Valor & Valor \\ \hline
-			Fila 5 & Valor & Valor & Valor & Valor & Valor & Valor \\ \hline
+			Grados & Acel. Teo. en x & V_{A} Pract.  & V_{B} Pract. & V_{B} Teo. & V_{f} Teo-Pract. & V_{f} teo \\ \hline
+			2 grados & 0,342 [m/s^{2}] & 0,555 [m/s] & 0,788 [m/s] & 0,624 [m/s] & Valor & Valor \\ \hline
+			4 grados & 0,684 [m/s^{2}] & 0,747 [m/s] & 1,095 [m/s] & 3,773 [m/s]& Valor & Valor \\ \hline
+			8 grados & 1,360 [m/s^{2}] & 1,004 [m/s] & 1,405 [m/s] & 5,311 [m/s]& Valor & Valor \\ \hline
+			10 grados & 1,710 [m/s^{2}] & 1,126 [m/s] & 1,677 [m/s] & 5,955 [m/s] & Valor & Valor \\ \hline
+			14 grados & 2,370 [m/s^{2}] & 1,349 [m/s] & 2,105 [m/s] & 7,016 [m/s] & Valor & Valor \\ \hline
 		\end{tabular}
 		\caption{Tabla de comparación de velocidades teóricas y prácticas en A, B y final.}
 		\label{tabla:caida_galileo}
 	\end{table}
 
-	\twocolumn
+    \onecolumn
+    \section{Gráficos}
+    
+    % Cambiar a una sola columna
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.8\textwidth]{Lab1/Multimedia/grafico1.jpg}
+        \caption{Velocidad/Tiempo y aceleración/Ángulo.}
+        \label{fig:imagen}
+    \end{figure}
 
-	\subsection{Gráficos}
-	blabla
+    \twocolumn
+    
+    \section{Discusión de resultados}
+    blabla
+    
+    \subsection{Interpretación de los resultados}
+    blabla.
+    
+    \subsection{Análisis de errores}
+    blabla.
+    
+    \subsection{Comparación con la teoría}
+    blabla.
+    
+    \subsection{Conclusiones}
+    blabla.
+    
+    \section{Referencias bibliográficas}
+    blabla.
+    
+
 	
 	\section{Discusión de resultados}
 	blabla
