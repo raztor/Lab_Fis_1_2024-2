@@ -11,7 +11,7 @@ def fix_text(text):
     return ftfy.fix_text(text)
 
 # Load the data from the JSON file
-with open('config/subplot.JSON', 'r') as file:
+with open('config/subplot.JSON', 'r', encoding='utf-8') as file:
     data = json.load(file)
 
 # Create the output directory './imagenes' if it does not exist
@@ -35,19 +35,23 @@ file_path_filtered = os.path.join(output_dir, file_name_filtered)
 # Number of subplots required (one for each subplot in the JSON)
 num_subplots = len(data['subplots'])
 
-# Create a figure with subplots for the filtered data
-fig, axs = plt.subplots(1, num_subplots, figsize=(5 * num_subplots, 6))
+# Calculate the number of rows and columns
+num_cols = 3
+num_rows = (num_subplots + num_cols - 1) // num_cols  # Calculate the number of rows needed
 
-# Ensure axs is iterable (handle single subplot case)
-if num_subplots == 1:
-    axs = [axs]
+# Create a figure with a grid of subplots (2 rows and 3 columns)
+fig, axs = plt.subplots(num_rows, num_cols, figsize=(5 * num_cols, 6 * num_rows))
+
+# Ensure axs is iterable in one dimension
+axs = axs.flatten() if num_subplots > 1 else [axs]
 
 # Plot each subplot's lines
 for i, subplot in enumerate(data['subplots']):
     ax = axs[i]
     ax.set_title(fix_text(subplot.get('title', f'Subplot {i + 1}')))
-    ax.set_xlabel(fix_text(data['xlabel']))
-    ax.set_ylabel(fix_text(data['ylabel']))
+    # Use subplot-specific labels if available
+    ax.set_xlabel(fix_text(subplot.get('xlabel', data['xlabel'])))
+    ax.set_ylabel(fix_text(subplot.get('ylabel', data['ylabel'])))
 
     # Get the initial Y value for the first line to normalize the others
     initial_y_values = [line['y'][0] for line in subplot['lines'] if line['y']]
@@ -65,12 +69,15 @@ for i, subplot in enumerate(data['subplots']):
             window_length = min(11, y_length) if y_length % 2 != 0 else min(11, y_length - 1)
 
             if window_length >= 3:  # Savitzky-Golay filter requires at least window length of 3
-                y_filtered = savgol_filter(y_normalized, window_length=window_length,
-                                           polyorder=2)  # Adjust polyorder as needed
-                ax.plot(line['x'], y_filtered, label=fix_text(line['label'] + ' (filtered)'),
+                y_filtered = savgol_filter(y_normalized, window_length=window_length, polyorder=2)
+                ax.plot(line['x'], y_filtered, label=fix_text(line['label'] + ' (filtrado)'),
                         marker=line.get('marker', ''), linestyle=line.get('linestyle', '-'))
 
     ax.legend(loc='best')
+
+# Remove any additional empty subplots
+for j in range(i + 1, len(axs)):
+    fig.delaxes(axs[j])
 
 # Adjust layout to prevent overlapping
 plt.tight_layout()
